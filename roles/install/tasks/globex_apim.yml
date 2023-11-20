@@ -1,0 +1,16 @@
+---
+
+- name: "Create namespace"
+  kubernetes.core.k8s:
+    state: present
+    resource_definition: "{{ lookup('template', 'namespace.yaml.j2') }}"
+  vars:
+    r_namespaces:
+      - name: "{{ globex_apim_namespace }}"
+  retries: 10
+  delay: 30
+
+- name: Deploy ArgoCD application
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'globex-apim.yaml.j2') }}"

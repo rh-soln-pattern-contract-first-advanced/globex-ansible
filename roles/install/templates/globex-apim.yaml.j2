@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ globex_apim_application_name }}
+  namespace: {{ globex_apim_application_namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  destination:
+    name: ""
+    namespace: {{ globex_apim_namespace }}
+    server: 'https://kubernetes.default.svc'
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+  source:
+    repoURL: {{ globex_apim_repo }}
+    targetRevision: {{ globex_apim_repo_tag }}
+    path: {{ globex_apim_repo_path }}
+    helm:
+      values: |
+        globex-partner-gateway:
+          globexStoreApp:
+            url: http://globex-store-app.globex.svc.cluster.local:8080
+        globex-mobile-gateway:
+          globexStoreApp:
+            url: http://globex-store-app.globex.svc.cluster.local:8080
+          keycloak:
+            authserver: https://sso.{{ r_openshift_subdomain }}/auth/realms/globex
+        service-registry:
+          route:
+            host: service-registry-apim.{{ r_openshift_subdomain }}

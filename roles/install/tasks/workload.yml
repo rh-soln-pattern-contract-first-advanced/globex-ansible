@@ -1,0 +1,34 @@
+---
+
+- name: Install AMQ Streams operator
+  ansible.builtin.include_tasks: amq_streams_operator.yml
+
+- name: Install Red Hat SSO Operator
+  ansible.builtin.include_tasks: rhsso_operator.yml
+
+- name: Install OpenShift Pipelines operator
+  ansible.builtin.include_tasks: openshift_pipelines_operator.yml
+
+- name: Install OpenShift Gitops
+  ansible.builtin.include_tasks: openshift_gitops.yml
+
+- name: Install 3scale Operator
+  ansible.builtin.include_tasks: threescale_operator.yml
+
+- name: Install Service Registry operator
+  ansible.builtin.include_tasks: service_registry_operator.yml
+
+- name: Install Apicurio Designer operator
+  ansible.builtin.include_tasks: apicurio_operator.yml
+
+- name: Install SSO
+  ansible.builtin.include_tasks: rhsso.yml
+
+- name: Install 3scale with Gitops
+  ansible.builtin.include_tasks: threescale-gitops.yml
+
+- name: Install Globex
+  ansible.builtin.include_tasks: globex.yml
+
+- name: Install Globex Apim
+  ansible.builtin.include_tasks: globex_apim.yml
