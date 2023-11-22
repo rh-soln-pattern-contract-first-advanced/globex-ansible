@@ -219,9 +219,9 @@ service_registry_catalog_snapshot_image_tag: ""
 rhsso_application_namespace: openshift-gitops
 rhsso_application_name: rhsso
 rhsso_namespace: "{{ rhsso_operator_namespace }}"
-rhsso_gitops_repo: https://github.com/btison/globex-api-versioning-helm.git
+rhsso_gitops_repo: https://github.com/rh-soln-pattern-contract-first-advanced/globex-helm.git
 rhsso_gitops_repo_tag: main
-rhsso_gitops_repo_path: globex-api-versioning/globex-rhsso
+rhsso_gitops_repo_path: globex-contract-first/globex-rhsso
 
 rhsso_cr_name: rhsso
 rhsso_external_access: false
@@ -240,9 +240,9 @@ globex_mw_namespace: globex-mw
 globex_application_name: globex
 globex_application_namespace: openshift-gitops
 
-globex_application_repo: https://github.com/btison/globex-api-versioning-helm.git
+globex_application_repo: https://github.com/rh-soln-pattern-contract-first-advanced/globex-helm.git
 globex_application_repo_tag: main
-globex_application_repo_path: globex-api-versioning/globex
+globex_application_repo_path: globex-contract-first/globex
 
 kafka_broker_name: kafka
 kafka_security_protocol: SASL_PLAINTEXT
@@ -258,9 +258,9 @@ globex_user_password: openshift
 
 threescale_application_namespace: openshift-gitops
 
-threescale_gitops_repo: https://github.com/btison/globex-api-versioning-helm.git
+threescale_gitops_repo: https://github.com/rh-soln-pattern-contract-first-advanced/globex-helm.git
 threescale_gitops_repo_tag: main
-threescale_gitops_repo_path: globex-api-versioning/globex-threescale
+threescale_gitops_repo_path: globex-contract-first/globex-threescale
 
 threescale_namespace: 3scale
 
@@ -287,6 +287,22 @@ globex_apim_namespace: "globex-apim-{{ globex_apim_user }}"
 globex_apim_application_name: globex-apim
 globex_apim_application_namespace: openshift-gitops
 
-globex_apim_repo: https://github.com/btison/globex-api-versioning-helm.git
+globex_apim_repo: https://github.com/rh-soln-pattern-contract-first-advanced/globex-helm.git
 globex_apim_repo_tag: main
-globex_apim_repo_path: globex-api-versioning/globex-apim
+globex_apim_repo_path: globex-contract-first/globex-apim
+
+
+# ------------------------------------------------
+# Apicurio Designer
+# ------------------------------------------------
+
+apicurio_application_namespace: openshift-gitops
+apicurio_application_name: apicurio
+apicurio_namespace: "{{ apicurio_operator_namespace }}"
+apicurio_gitops_repo: https://github.com/rh-soln-pattern-contract-first-advanced/globex-helm.git
+apicurio_gitops_repo_tag: main
+apicurio_gitops_repo_path: globex-contract-first/globex-apicurio-designer
+
+apicurio_replicas: 1
+apicurio_ui_host: apicurio-designer
+apicurio_generator_host: apicurio-generator

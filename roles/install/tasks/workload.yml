@@ -32,3 +32,6 @@
 
 - name: Install Globex Apim
   ansible.builtin.include_tasks: globex_apim.yml
+
+- name: Install Apicurio Gitops application
+  ansible.builtin.include_tasks: apicurio_designer.yml
